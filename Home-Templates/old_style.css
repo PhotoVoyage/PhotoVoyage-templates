@@ -1,0 +1,151 @@
+body {
+    font-family: 'Times New Roman', Times, serif; /* Cambiar la fuente a una serif */
+    margin: 0;
+    padding: 0;
+    background-color: #eae2b7; /* Cambiar el color de fondo a un tono más antiguo */
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f3e9; /* Cambiar el color del contenedor */
+    border: 2px solid #d4b483; /* Agregar un borde */
+    border-radius: 10px; /* Agregar bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agregar una sombra */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px; /* Reducir el tamaño del título */
+    color: #4d4d4d; /* Cambiar el color del texto */
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    cursor: pointer;
+    background-color: #d4b483; /* Cambiar el color del botón */
+    padding: 10px; /* Aumentar el tamaño del botón */
+    border-radius: 5px; /* Agregar bordes redondeados */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f7f3e9; /* Cambiar el color del menú desplegable */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    animation: none; /* Desactivar la animación */
+}
+
+.dropdown-content a {
+    color: #4d4d4d; /* Cambiar el color del texto */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px; /* Reducir el tamaño del texto */
+}
+
+.dropdown-content a:hover {
+    background-color: #d4b483; /* Cambiar el color de fondo en hover */
+}
+
+.menu-toggle.active .dropdown-content {
+    display: block;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Agregar bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agregar una sombra */
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.uploaded-img-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.uploaded-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Cambiar el color de fondo del modal */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80%;
+    background-color: #f7f3e9; /* Cambiar el color de fondo del contenido del modal */
+    padding: 20px; /* Añadir relleno */
+    border-radius: 10px; /* Agregar bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agregar una sombra */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #4d4d4d; /* Cambiar el color del texto */
+    font-size: 24px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #8c8c8c; /* Cambiar el color del texto en hover */
+    text-decoration: none;
+}
+
+.share-btn {
+    background-color: #d4b483;
+    color: white;
+    padding: 8px 16px; /* Ajustar el tamaño del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.share-btn:hover {
+    background-color: #a68f61; /* Cambiar el color de fondo en hover */
+}
