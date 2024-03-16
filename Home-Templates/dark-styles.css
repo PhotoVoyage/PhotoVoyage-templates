@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif; /* Establecer fuente predeterminada */
+    margin: 0; /* Eliminar margen predeterminado */
+    padding: 0; /* Eliminar relleno predeterminado */
+    background-color: #1f1f1f; /* Establecer color de fondo oscuro */
+    color: #fff; /* Establecer color de texto claro */
+}
+
+/* Estilos del contenedor */
+.container {
+    max-width: 1000px; /* Establecer ancho máximo */
+    margin: 20px auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Agregar relleno */
+    display: flex; /* Usar flexbox para diseño */
+    flex-direction: column; /* Organizar elementos en una columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+}
+
+/* Estilos de encabezado */
+h1 {
+    margin-bottom: 20px; /* Agregar espacio debajo del encabezado */
+}
+
+/* Estilos del menú de alternancia */
+.menu-toggle {
+    position: absolute; /* Posicionar el menú de alternancia */
+    top: 20px; /* Establecer posición superior */
+    left: 20px; /* Establecer posición izquierda */
+    z-index: 1; /* Establecer orden de apilamiento */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    color: #fff; /* Establecer color de texto claro */
+}
+
+/* Estilos del menú desplegable */
+.dropdown-content {
+    display: none; /* Ocultar contenido desplegable de forma predeterminada */
+    position: absolute; /* Posicionar el menú desplegable */
+    background-color: #2f2f2f; /* Establecer color de fondo oscuro */
+    min-width: 160px; /* Establecer ancho mínimo */
+    box-shadow: 0px 8px 16px 0px rgba(255,255,255,0.2); /* Agregar sombra */
+    z-index: 1; /* Establecer orden de apilamiento */
+    animation: slideDown 0.5s ease forwards; /* Agregar animación de deslizamiento hacia abajo */
+}
+
+/* Estilos de los elementos del menú desplegable */
+.dropdown-content a {
+    color: #fff; /* Establecer color de texto claro */
+    padding: 12px 16px; /* Agregar relleno */
+    text-decoration: none; /* Eliminar subrayado */
+    display: block; /* Mostrar como elemento de bloque */
+}
+
+/* Efecto de desplazamiento para elementos del menú desplegable */
+.dropdown-content a:hover {
+    background-color: #3f3f3f; /* Cambiar color de fondo al pasar el ratón */
+}
+
+/* Mostrar contenido desplegable cuando el menú de alternancia está activo */
+.menu-toggle.active .dropdown-content {
+    display: block; /* Mostrar el contenido desplegable */
+}
+
+/* Estilos de la galería */
+.gallery {
+    display: grid; /* Usar grid para diseño */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Establecer diseño de columnas */
+    grid-auto-rows: minmax(200px, auto); /* Establecer altura de fila */
+    grid-gap: 20px; /* Establecer espacio entre elementos de grid */
+}
+
+/* Estilos de imagen */
+.gallery img {
+    width: 100%; /* Establecer ancho de imagen para llenar el contenedor */
+    height: auto; /* Establecer altura para mantener la relación de aspecto */
+    border-radius: 5px; /* Agregar radio de borde */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Agregar sombra */
+    transition: transform 0.2s; /* Agregar transición de transformación */
+    cursor: pointer; /* Cambiar cursor a puntero */
+}
+
+/* Efecto de hover para imágenes */
+.gallery img:hover {
+    transform: scale(1.05); /* Escalar imagen al pasar el ratón */
+}
+
+/* Diseño receptivo para pantallas pequeñas */
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajustar diseño de columnas */
+    }
+}
+
+/* Contenedor para imágenes cargadas */
+.uploaded-img-container {
+    margin-top: 20px; /* Agregar espacio encima del contenedor */
+    text-align: center; /* Centrar texto */
+}
+
+/* Estilos para imágenes cargadas */
+.uploaded-img {
+    max-width: 100%; /* Establecer ancho máximo */
+    height: auto; /* Establecer altura para mantener relación de aspecto */
+    border-radius: 5px; /* Agregar radio de borde */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); /* Agregar sombra */
+    margin: 0 auto; /* Centrar la imagen */
+}
+
+/* Estilos modales */
+.modal {
+    display: none; /* Ocultar el modal de forma predeterminada */
+    position: fixed; /* Posicionar el modal */
+    z-index: 1; /* Establecer orden de apilamiento */
+    padding-top: 50px; /* Agregar relleno en la parte superior */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permitir desplazamiento */
+    background-color: rgb(0,0,0); /* Establecer color de fondo */
+    background-color: rgba(0,0,0,0.9); /* Establecer color de fondo con opacidad */
+}
+
+/* Estilos del contenido modal */
+.modal-content {
+    margin: auto; /* Centrar el contenido */
+    display: block; /* Mostrar como elemento de bloque */
+    width: 80%; /* Establecer ancho */
+    max-width: 700px; /* Establecer ancho máximo */
+    max-height: 80%; /* Establecer altura máxima */
+}
+
+/* Estilos del botón de cerrar */
+.close {
+    position: absolute; /* Posicionar el botón de cerrar */
+    top: 15px; /* Establecer posición superior */
+    right: 35px; /* Establecer posición derecha */
+    color: #fff; /* Establecer color de texto claro */
+    font-size: 40px; /* Establecer tamaño de fuente */
+    font-weight: bold; /* Establecer peso de fuente */
+    transition: 0.3s; /* Agregar efecto de transición */
+    cursor: pointer; /* Cambiar cursor a puntero */
+}
+
+/* Efecto de hover para el botón de cerrar */
+.close:hover,
+.close:focus {
+    color: #bbb; /* Cambiar color de texto al pasar el ratón */
+    text-decoration: none; /* Eliminar subrayado al pasar el ratón */
+}
+
+/* Estilos del botón de compartir */
+.share-btn {
+    background-color: #ed5c53; /* Establecer color de fondo */
+    color: white; /* Establecer color de texto */
+    padding: 5px 10px; /* Agregar relleno */
+    border: none; /* Eliminar borde */
+    border-radius: 5px; /* Agregar radio de borde */
+    cursor: pointer; /* Cambiar cursor a puntero */
+    margin-top: 5px; /* Agregar espacio encima del botón */
+    transition: background-color 0.3s; /* Agregar efecto de transición */
+}
+
+/* Efecto de hover para el botón de compartir */
+.share-btn:hover {
+    background-color: #ff7c70; /* Cambiar color de fondo al pasar el ratón */
+}
