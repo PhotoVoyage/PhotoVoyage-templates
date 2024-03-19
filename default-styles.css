@@ -1,8 +1,9 @@
+
 body {
     font-family: Arial, sans-serif; /* Set default font */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
-    background-color: #f1f1f1; /* Set background color */
+    background-color: #ffffff; /* Set background color */
 }
 
 /* Container styles */
@@ -23,8 +24,9 @@ h1 {
 /* Toggle menu styles */
 .menu-toggle {
     position: absolute; /* Position the menu toggle */
-    top: 20px; /* Set top position */
-    left: 20px; /* Set left position */
+    top: 0; /* Set top position */
+    left: 0; /* Set left position */
+    margin: 10px; /* Add margin */
     z-index: 1; /* Set stacking order */
     cursor: pointer; /* Change cursor to pointer */
 }
@@ -33,18 +35,22 @@ h1 {
 .dropdown-content {
     display: none; /* Hide the dropdown content by default */
     position: absolute; /* Position the dropdown */
-    background-color: #f9f9f9; /* Set background color */
+    background-color: #fff; /* Set background color */
     min-width: 160px; /* Set minimum width */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add shadow */
+    padding: 10px 0; /* Add padding */
     z-index: 1; /* Set stacking order */
-    animation: slideDown 0.5s ease forwards; /* Add slide-down animation */
+    top: 30px; /* Set top position */
+    left: 0; /* Set left position */
+    border-radius: 5px; /* Add border radius */
+    animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* Keyframes for slide-down animation */
+/* Define the animation */
 @keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-50%);
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
@@ -54,10 +60,12 @@ h1 {
 
 /* Dropdown item styles */
 .dropdown-content a {
-    color: black; /* Set text color */
-    padding: 12px 16px; /* Add padding */
-    text-decoration: none; /* Remove underline */
     display: block; /* Display as block element */
+    padding: 10px 20px; /* Add padding */
+    color: #333; /* Set text color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Add transition effect */
+    transition: background-color 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* Hover effect for dropdown items */
@@ -68,6 +76,62 @@ h1 {
 /* Show dropdown content when menu toggle is active */
 .menu-toggle.active .dropdown-content {
     display: block; /* Display the dropdown content */
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container for uploaded images */
+.uploaded-img-container {
+    margin-top: 5px; /* Add space above container */
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* online users */
+.users-online {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    margin: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#users-online-container {
+    transition: transform 0.3s ease;
+}
+
+#users-online-container:hover {
+    transform: scale(1.1);
+}
+
+.emoji-size {
+    width: 1em;
+    height: 1em;
+}
+
+.emoji-wrapper {
+    display: inline-block;
+}
+
+/* Styles for uploaded images */
+.uploaded-img {
+    max-width: 500px; /* Set maximum width */
+    height: 200px; /* Set height to maintain aspect ratio */
+    border-radius: 5px; /* Add border radius */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+    margin: 0 auto; /* Center the image */
 }
 
 /* Gallery styles */
@@ -84,36 +148,16 @@ h1 {
     height: auto; /* Set height to maintain aspect ratio */
     border-radius: 5px; /* Add border radius */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
-    transition: transform 0.2s; /* Add transform transition */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transform and shadow transition */
     cursor: pointer; /* Change cursor to pointer */
 }
 
-/* Hover effect for images */
+/* Smooth zoom effect for images on hover */
 .gallery img:hover {
     transform: scale(1.05); /* Scale image on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
 
-/* Responsive layout for small screens */
-@media (max-width: 600px) {
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust column layout */
-    }
-}
-
-/* Container for uploaded images */
-.uploaded-img-container {
-    margin-top: 20px; /* Add space above container */
-    text-align: center; /* Center align text */
-}
-
-/* Styles for uploaded images */
-.uploaded-img {
-    max-width: 100%; /* Set maximum width */
-    height: auto; /* Set height to maintain aspect ratio */
-    border-radius: 5px; /* Add border radius */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
-    margin: 0 auto; /* Center the image */
-}
 
 /* Modal styles */
 .modal {
@@ -158,19 +202,26 @@ h1 {
     text-decoration: none; /* Remove underline on hover */
 }
 
-/* Share button styles */
-.share-btn {
-    background-color: #ed5c53; /* Set background color */
-    color: white; /* Set text color */
-    padding: 5px 10px; /* Add padding */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Add border radius */
+/* Custom CSS */
+.image-container {
+    margin: 5px; /* Add margin */
+    position: relative; /* Set position */
     cursor: pointer; /* Change cursor to pointer */
-    margin-top: 5px; /* Add space above button */
-    transition: background-color 0.3s; /* Add transition effect */
+    max-width: 350px; /* Set maximum width */
+    max-height: 300px; /* Set height */
+    background-color: #ffffff; /* Set background color */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: transform 0.3s ease; /* Add transform transition */
+    text-align: center;
 }
 
-/* Hover effect for share button */
-.share-btn:hover {
-    background-color: #ff7c70; /* Change background color on hover */
+.image-container:hover {
+    transform: translateY(-5px); /* Translate on hover */
+}
+
+.image-container img {
+    width: auto; /* Set width to auto */
+    height: 100%; /* Set height to fill container */
+    border-radius: 10px 10px 0 0; /* Add border radius */
 }
